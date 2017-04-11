@@ -44,6 +44,9 @@ class BitMEX(object):
         self.ws = BitMEXWebsocket()
         self.ws.connect(base_url, symbol, shouldAuth=shouldWSAuth)
 
+    def __del__(self):
+        self.ws.exit()
+        
     #
     # Public methods
     #
